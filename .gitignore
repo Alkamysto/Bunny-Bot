@@ -1,0 +1,9 @@
+#IDES
+.idea
+.vscode
+
+#FOLDERS
+node_modules
+
+#FILES
+bun.lock
