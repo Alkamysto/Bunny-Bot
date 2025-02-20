@@ -1,10 +1,10 @@
-import { Client, REST, Routes, ShardingManager } from "discord.js";
+import { Client, REST, Routes } from "discord.js";
 import { readdirSync } from "fs";
 import { join } from "path";
 
 import Config from "./config";
 import Logger from "../utils/logger";
-import configFile from "../settings/settings";
+import configFile from "../configs/settings";
 import { Command } from "./command";
 
 export class Application extends Client {
@@ -42,11 +42,11 @@ export class Application extends Client {
         this.on(handlerName, (...args) =>
           handler.default.executeHandler(this, ...args)
         );
-        this.getLogger().send(`Handler Chargé: ${handlerName}`, "NOTIF");
+        this.getLogger().send(`Handler loaded: ${handlerName}`, "NOTIF");
       }
     }
     this.getLogger().send(
-      `LoadHandlers passé : ${files.length} handlers`,
+      `LoadHandlers passed : ${files.length} handlers`,
       "READY"
     );
   }
@@ -62,12 +62,12 @@ export class Application extends Client {
         const commandName = file.split(".")[0];
         if (command.default.settings.enabled) {
           this.commands.push(command.default);
-          this.getLogger().send(`Trigger Chargé: ${commandName}`, "NOTIF");
+          this.getLogger().send(`Trigger loaded: ${commandName}`, "NOTIF");
         }
       }
     }
     this.getLogger().send(
-      `LoadTriggers passé : ${this.commands.length} triggers `,
+      `LoadCommands passed : ${this.commands.length} commands `,
       "READY"
     );
   }
@@ -77,12 +77,12 @@ export class Application extends Client {
     if (syncInts.commands) {
       if (this.commands.length === 0) {
         this.getLogger().send(
-          "Aucun trigger slashé à mettre en cache pour synchronisation",
+          "No slash commands are ready for cache synchronization",
           "ERROR"
         );
       } else {
         this.getLogger().send(
-          `Synchronisation de ${this.commands.length} triggers slashés`,
+          `Synchronization of ${this.commands.length} slash commands`,
           "READY"
         );
         data.push(...this.commands.map((cmd) => cmd.data.toJSON()));
@@ -95,7 +95,7 @@ export class Application extends Client {
     const data = await this.getSyncInts(syncInts);
     if (data.length === 0)
       return this.getLogger().send(
-        "Aucun trigger slashé à syncroniser",
+        "No slash commands enterred for synchronization",
         "ERROR"
       );
     const rest = new REST({ version: "10" }).setToken(

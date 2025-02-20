@@ -8,11 +8,11 @@ const client = new Application();
 async function launchingDevice(token: string, cache: string): Promise<void> {
   console.log(chalk.bold.magenta(client.getLogger().ascii));
 
-  await client.loadHandlers('handlers');
-  await client.loadCommands('commands');
+  await client.loadHandlers("handlers");
+  await client.loadCommands("commands");
 
-  if (cache === 'clear') {
-    console.log("Resetting cache");
+  if (cache === "clear") {
+    console.log("Destoy cache and rebuild it...");
     await client.breakSync();
   }
 

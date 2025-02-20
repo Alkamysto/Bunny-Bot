@@ -5,7 +5,7 @@ dayjs.locale("FR");
 
 export default class Logger {
   private index(): string {
-    return "[ " + chalk.bold.magenta(dayjs().format("LT")) + " ";
+    return "[ " + chalk.bold.magenta(dayjs().format("DD/MM/YYYY - HH:mm:ss")) + " ";
   }
 
   public send(content: string, statut: string) {
