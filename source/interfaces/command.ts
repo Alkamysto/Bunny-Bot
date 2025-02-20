@@ -1,20 +1,20 @@
-import { ButtonInteraction, ChatInputCommandInteraction } from "discord.js";
-import { Application } from "./application";
+import { ButtonInteraction, ChatInputCommandInteraction } from 'discord.js';
+import { Application } from './application';
 
 export interface Command {
-  data: any;
+	data: any;
 
-  executeCommand(
-    client: Application,
-    interaction: ChatInputCommandInteraction
-  ): void;
-  executeButtons?(
-    client: Application,
-    interaction: ButtonInteraction,
-    buttonId: string
-  ): void;
+	executeCommand(
+		client: Application,
+		interaction: ChatInputCommandInteraction
+	): void;
+	executeButtons?(
+		client: Application,
+		interaction: ButtonInteraction,
+		buttonId: string
+	): void;
 
-  settings: {
-    enabled: boolean;
-  };
+	settings: {
+		enabled: boolean;
+	};
 }

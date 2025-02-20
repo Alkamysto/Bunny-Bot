@@ -1,9 +1,9 @@
-import { Application } from "./application";
+import { Application } from './application';
 
 export interface Handler {
-  executeHandler(client: Application, ...args: unknown[]): void;
+	executeHandler(client: Application, ...args: unknown[]): void;
 
-  settings: {
-    enabled: boolean;
-  };
+	settings: {
+		enabled: boolean;
+	};
 }
