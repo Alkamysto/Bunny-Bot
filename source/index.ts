@@ -20,7 +20,7 @@ async function launchingDevice(token: string, cache: string): Promise<void> {
 	await client.login(token);
 }
 
-launchingDevice(process.env.TOKEN!, process.env.CACHE!);
+launchingDevice(process.env.CLIENT_TOKEN!, process.env.CLIENT_CACHE!);
 
 process.on('uncaughtException', (error) => {
 	client.getLogger().send(`UncaughtException : ${error}`, 'ERROR');

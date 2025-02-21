@@ -3,7 +3,9 @@
 .vscode
 
 #FOLDERS
-node_modules
+/node_modules
+/dist
 
 #FILES
 bun.lock
+.env.staging

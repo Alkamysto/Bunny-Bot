@@ -4,7 +4,7 @@ import { join } from 'path';
 
 import Config from './config';
 import Logger from '../utils/logger';
-import configFile from '../configs/settings';
+import configFile from '../configs/settings.test';
 import { Command } from './command';
 
 export class Application extends Client {

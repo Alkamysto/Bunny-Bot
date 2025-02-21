@@ -19,8 +19,8 @@ const config: Config = {
 	guildId: '1199028388942327858',
 
 	embed: {
-		footer: 'Copyright Kouta-Bot | Mode : Prod | Développé par Alkemyst',
-		classColor: '#847bee',
+		footer: 'https://kouta.club | By _Alkemyst_',
+		classColor: '#ff0000',
 		errorColor: '#ff5733',
 		alertColor: '#ffca33',
 		readyColor: '#a8da68',
