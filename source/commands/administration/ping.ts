@@ -1,4 +1,7 @@
 import {
+	ActionRowBuilder,
+	ButtonBuilder,
+	ButtonStyle,
 	EmbedBuilder,
 	InteractionContextType,
 	PermissionsBitField,
@@ -29,10 +32,10 @@ const ping: Command = {
 					inline: true,
 				},
 				{
-					name: '📦 Mémoire vive libre :',
+					name: '📦 Mémoire utilisée :',
 					value:
 						'> ' +
-						(os.freemem() / Math.pow(1024, 3)).toFixed(2) +
+						((os.totalmem() - os.freemem()) / Math.pow(1024, 3)).toFixed(2) +
 						'Go / ' +
 						(os.totalmem() / Math.pow(1024, 3)).toFixed(2) +
 						'Go',
@@ -55,8 +58,13 @@ const ping: Command = {
 					inline: false,
 				},
 				{
-					name: '⚡️ Alimentation / Température',
-					value: '> 230V / 1000W | Tempéraure de fonctionnement normale',
+					name: '⚡️ Latence API / PC',
+					value:
+						'> Ping API : ' +
+						interaction.client.ws.ping +
+						' ms | Ping PC : ' +
+						(Date.now() - interaction.createdTimestamp) +
+						' ms',
 					inline: false,
 				},
 			])
@@ -65,7 +73,7 @@ const ping: Command = {
 				text: client.getConfig().embed.footer,
 				iconURL: interaction.user.avatarURL()!,
 			});
-		interaction.reply({ embeds: [embed] }).catch(console.error);
+		await interaction.reply({ embeds: [embed] }).catch(console.error);
 	},
 
 	settings: {

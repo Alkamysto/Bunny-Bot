@@ -8,4 +8,4 @@
 
 #FILES
 bun.lock
-.env.staging
+.env

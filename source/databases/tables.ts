@@ -26,7 +26,7 @@ export default interface Tables {
 		nolevel2: ChannelResolvable | string; //Channel SPAM 2
 		nolevel3: ChannelResolvable | string; //Channel SPAM 3
 	};
-	AntiRaid_Global: {
+	AntiRaid: {
 		serverId: GuildResolvable | string;
 		join_limit: number;
 		join_timeout: number;
@@ -40,7 +40,7 @@ export default interface Tables {
 		serverId: GuildResolvable | string;
 		isbooster: TinyInt;
 		description: string;
-		join_counter: string;
+		join_counter: number;
 	};
 	Economy: {
 		memberId: UserResolvable | string;
@@ -51,36 +51,36 @@ export default interface Tables {
 	Leveling: {
 		memberId: UserResolvable | string;
 		main_level: number;
-		multiplicator: number;
+		multiplicator: string;
 		xp_farmed: number;
 		xp_needed: number;
 	};
 	Moderation: {
 		memberId: UserResolvable | string;
 		serverId: GuildResolvable | string;
-		Bans: {
-			memberId: UserResolvable | string;
-			date: string;
-			reason: string;
-			moderator: string;
-		};
-		Kicks: {
-			memberId: UserResolvable | string;
-			date: string;
-			reason: string;
-			moderator: string;
-		};
-		Timeouts: {
-			memberId: UserResolvable | string;
-			date: string;
-			reason: string;
-			moderator: string;
-		};
-		Warns: {
-			memberId: UserResolvable | string;
-			date: string;
-			reason: string;
-			moderator: string;
-		};
+	};
+	Bans: {
+		memberId: UserResolvable | string;
+		date: string;
+		reason: string;
+		moderator: string;
+	};
+	Kicks: {
+		memberId: UserResolvable | string;
+		date: string;
+		reason: string;
+		moderator: string;
+	};
+	Timeouts: {
+		memberId: UserResolvable | string;
+		date: string;
+		reason: string;
+		moderator: string;
+	};
+	Warns: {
+		memberId: UserResolvable | string;
+		date: string;
+		reason: string;
+		moderator: string;
 	};
 }
